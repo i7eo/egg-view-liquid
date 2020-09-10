@@ -1,0 +1,24 @@
+{
+  "name": "egg-view-liquid",
+  "version": "1.0.0",
+  "description": "egg view plugin for liquidJs",
+  "eggPlugin": {
+    "name": "liquid"
+  },
+  "keywords": [
+    "egg",
+    "egg-plugin",
+    "egg-view",
+    "liquid"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i7eo/egg-view-liquid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/i7eo/egg-view-liquid/issues"
+  },
+  "homepage": "https://github.com/i7eo/egg-view-liquid#readme",
+  "author": "i7eo <george704t@gmail.com>",
+  "license": "MIT"
+}
