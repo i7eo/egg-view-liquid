@@ -1,4 +1,4 @@
-# egg-view-ejs
+# egg-view-liquid
 
 [![NPM version][npm-image]][npm-url]
 [![Travis Status](https://img.shields.io/travis/1021683053/egg-view-art/master.svg?label=travis)](https://www.travis-ci.org/1021683053/egg-view-art)
@@ -6,53 +6,53 @@
 [npm-image]: https://img.shields.io/npm/v/egg-view-art.svg
 [npm-url]: https://npmjs.org/package/egg-view-art
 
-egg view plugin for [ejs].
+egg view plugin for [liquid].
 
 ## Install
 
 ```bash
-$ npm i egg-view-ejs --save
+$ npm i egg-view-liquid --save
 ```
 
 ## Usage
 
 ```js
 // {app_root}/config/plugin.js
-exports.ejs = {
+exports.liquid = {
   enable: true,
-  package: 'egg-view-ejs',
+  package: 'egg-view-liquid',
 };
 
 // {app_root}/config/config.default.js
 exports.view = {
   mapping: {
-    '.ejs': 'ejs',
+    '.liquid': 'liquid',
   },
 };
 
-// ejs config
-exports.ejs = {};
+// liquid config
+exports.liquid = {};
 ```
 
-Create a ejs file
+Create a liquid file
 
 ```js
-// app/view/hello.ejs
-hello <%= data %>
+// app/view/hello.liquid
+hello {{ data }}
 ```
 
 Render it
 
 ```js
 // app/controller/render.js
-exports.ejs = async ctx => {
-  await ctx.render('hello.ejs', {
+exports.liquid = async ctx => {
+  await ctx.render('hello.liquid', {
     data: 'world',
   });
 };
 ```
 
-The file will be compiled and cached, you can change `config.ejs.cache = false` to disable cache, it's disable in local env by default.
+The file will be compiled and cached, you can change `config.liquid.cache = false` to disable cache, it's disable in local env by default.
 
 ### Include
 
@@ -61,38 +61,15 @@ You can include both relative and absolute file.
 Relative file is resolve from current file path.
 
 ```html
-// app/view/a.ejs include app/view/b.ejs
-<% include b.ejs %>
+// app/view/a.liquid include app/view/b.liquid
+{% render 'view/b' %}
 ```
 
 Absolute file is resolve from `app/view`.
 
 ```html
-// app/view/home.ejs include app/view/partial/menu.ejs
-<% include /partial/menu.ejs %>
-```
-
-### Layout
-
-You can render a view with layout also:
-
-```js
-// app/view/layout.ejs
-
-<%- body%>
-
-// app/controller/render.js
-exports.ejs = async ctx => {
-  const locals = {
-    data: 'world',
-  };
-
-  const viewOptions = {
-    layout: 'layout.ejs'
-  };
-
-  await ctx.render('hello.ejs', locals, viewOptions);
-};
+// app/view/home.liquid include app/view/partial/menu.liquid
+{% render 'partial/menu' %}
 ```
 
 ## Configuration
@@ -107,4 +84,11 @@ Please open an issue [here](https://github.com/eggjs/egg/issues).
 
 [MIT](LICENSE)
 
-[ejs]: https://github.com/mde/ejs
+[liquid]: https://github.com/harttle/liquidjs
+
+
+tips:
+
+引入文件时直接 partial/hello [路径名/文件名]
+
+liquid 目前不支持在文件中直接使用方法调用：hello {{ helper.data() }}如有需要可使用标签或者插件代替
