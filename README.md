@@ -87,8 +87,10 @@ Please open an issue [here](https://github.com/eggjs/egg/issues).
 [liquid]: https://github.com/harttle/liquidjs
 
 
-tips:
+## tips:
 
-引入文件时直接 partial/hello [路径名/文件名]
+  1. Use when you need to import files: `partial/xxx` not `/partial/xxx`
 
-liquid 目前不支持在文件中直接使用方法调用：hello {{ helper.data() }}如有需要可使用标签或者插件代替
+  2. LiquidJs currently does not support direct use of method calls in files: `Hello {{helper.data()}}` can be replaced with tags or plugins if needed.
+
+  3. Now, if you want to use LiquidJs for like express-ejs-Layout's `contentfor`, just use LiquidJs's `block` instead.
