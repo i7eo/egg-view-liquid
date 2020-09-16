@@ -72,7 +72,7 @@ Absolute file is resolve from `app/view`.
 {% render 'partial/menu' %}
 ```
 
-## tips:
+## Tips:
 
   1. Use when you need to import files: `partial/xxx` not `/partial/xxx`
 
