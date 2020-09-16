@@ -72,6 +72,14 @@ Absolute file is resolve from `app/view`.
 {% render 'partial/menu' %}
 ```
 
+## tips:
+
+  1. Use when you need to import files: `partial/xxx` not `/partial/xxx`
+
+  2. LiquidJs currently does not support direct use of method calls in files: `Hello {{helper.data()}}` can be replaced with tags or plugins if needed.
+
+  3. Now, if you want to use LiquidJs for like express-ejs-Layout's `contentfor`, just use LiquidJs's `block` instead.
+
 ## Configuration
 
 see [config/config.default.js](config/config.default.js) for more detail.
@@ -86,11 +94,3 @@ Please open an issue [here](https://github.com/eggjs/egg/issues).
 
 [liquid]: https://github.com/harttle/liquidjs
 
-
-## tips:
-
-  1. Use when you need to import files: `partial/xxx` not `/partial/xxx`
-
-  2. LiquidJs currently does not support direct use of method calls in files: `Hello {{helper.data()}}` can be replaced with tags or plugins if needed.
-
-  3. Now, if you want to use LiquidJs for like express-ejs-Layout's `contentfor`, just use LiquidJs's `block` instead.
