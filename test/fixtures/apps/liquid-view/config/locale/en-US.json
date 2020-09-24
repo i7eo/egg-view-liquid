@@ -1,0 +1,9 @@
+{
+	"error": "error",
+	"sign_out": "Oops~You have logged out, please sign in again!",
+	"enter_email": "Please enter an email address.",
+	"check_email": "Please check your email format.",
+	"enter_password": "Please enter an password.",
+	"check_password": "Please check your password format.",
+	"check_confirmPassword": "The password or the confirm password is incorrect."
+}

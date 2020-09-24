@@ -22,14 +22,14 @@ describe('test/egg-view-liquid.test.js', () => {
         it('should render with locals', () => {
             return app.httpRequest()
                 .get('/locals')
-                .expect('hello world')
+                .expect('hello world The password or the confirm password is incorrect. The password or the confirm password is incorrect.')
                 .expect(200);
         });
 
         it('should render with layout', () => {
             return app.httpRequest()
                 .get('/layout')
-                .expect('hello header\nhello footer')
+                .expect('hello header\nhello footer\n"The password or the confirm password is incorrect." "The password or the confirm password is incorrect."')
                 .expect(200);
         });
 
