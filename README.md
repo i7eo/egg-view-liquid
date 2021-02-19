@@ -9,7 +9,7 @@ egg view plugin for [liquid].
 
 ## :large_blue_circle: Internationalization
 
-English | [中文文档](README.md)
+English | [中文文档](README_zh.md)
 
 ## Install
 
